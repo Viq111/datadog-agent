@@ -496,3 +496,7 @@ func TestGetConditionMessage(t *testing.T) {
 		})
 	}
 }
+
+func TestValueCPUConversion(t *testing.T) {
+
+}
