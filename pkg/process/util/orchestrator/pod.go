@@ -10,8 +10,6 @@ package orchestrator
 import (
 	"fmt"
 	"hash/fnv"
-	"k8s.io/apimachinery/pkg/types"
-	"k8s.io/kubernetes/pkg/kubelet/pod"
 	"strconv"
 	"time"
 
@@ -25,6 +23,8 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	yaml "gopkg.in/yaml.v2"
 	v1 "k8s.io/api/core/v1"
+	"k8s.io/apimachinery/pkg/types"
+	"k8s.io/kubernetes/pkg/kubelet/pod"
 )
 
 const (
@@ -39,7 +39,6 @@ func ProcessPodlist(podList []*v1.Pod, groupID int32, cfg *config.AgentConfig, h
 	podMsgs := make([]*model.Pod, 0, len(podList))
 
 	for p := 0; p < len(podList); p++ {
-
 		// extract pod info
 		podModel := extractPodMessage(podList[p])
 
