@@ -16,7 +16,6 @@ import (
 	"github.com/DataDog/datadog-agent/pkg/dogstatsd"
 	"github.com/DataDog/datadog-agent/pkg/serializer"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 type runtimeTestSetting struct {
@@ -115,7 +114,7 @@ func TestDogstatsdMetricsStats(t *testing.T) {
 	serializer := serializer.NewSerializer(common.Forwarder)
 	agg := aggregator.InitAggregator(serializer, "")
 	common.DSD, err = dogstatsd.NewServer(agg)
-	require.Nil(t, err)
+	assert.Nil(err)
 
 	cleanRuntimeSetting()
 
